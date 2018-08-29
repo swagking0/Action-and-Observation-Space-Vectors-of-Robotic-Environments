@@ -1,0 +1,38 @@
+the camera angles used and which is changed on hard-code in the file
+
+file to change --> ../baselines/env/lib/python3.6/site-packages/gym/envs/robotics/fetch_env.py
+
+
+providing the parameter values to change camera for different directions:
+
+1. for above-view :
+   distance = 2.0
+   azimuth = -180.
+   elevation = -90.
+
+2. for right-view :
+   distance = 2.0
+   azimuth = -90.
+   elevation = -5.
+
+3. for left-view :
+   distance = 2.0
+   azimuth = 90.
+   elevation = -5.
+
+4. for front-view :
+   distance = 2.0
+   azimuth = 180.
+   elevation = -5. 
+
+
+ffmpeg commands used :
+
+1. For each png to video :
+Terminal command → 
+ffmpeg -framerate 5 -pattern_type glob -i '*.png' -b:v 10000k sample_output.mp4
+
+2. For 2x2 videos gride:
+Terminal command →
+ffmpeg -i sample-1.mp4 -i sample-2.mp4 -i sample-3.mp4 -i sample-4.mp4 -filter_complex “[0:v][1:v]hstack[top];[2:v][3:v]hstack[bottom];[top][bottom]vstack[v]” -map “[v]” -b:v 10000k sample_comb_output.mp4
+
