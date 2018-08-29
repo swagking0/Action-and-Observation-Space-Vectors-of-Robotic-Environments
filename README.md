@@ -2,5 +2,6 @@
 
 #### Two-Finger-Gripper
 <img src="pic_00000.png" width="400">
+
 #### Shadow Hand
 <img src="pic_00006.png" width="400">
